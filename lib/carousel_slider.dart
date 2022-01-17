@@ -143,7 +143,7 @@ class CarouselSliderState extends State<CarouselSlider>
               nextPage = 0;
             }
 
-            carouselState!.pageController?.animateToPage(nextPage,
+            carouselState?.pageController?.animateToPage(nextPage ?? 0,
                     duration: widget.options.autoPlayAnimationDuration,
                     curve: widget.options.autoPlayCurve)
                 .then((_) => changeMode(previousReason));
