@@ -131,7 +131,7 @@ class CarouselSliderState extends State<CarouselSlider>
 
             CarouselPageChangedReason previousReason = mode;
             changeMode(CarouselPageChangedReason.timed);
-            int nextPage = carouselState!.pageController!.page!.round() + 1;
+            int nextPage = carouselState!.pageController?.page?.round() ?? 0 + 1;
             int itemCount = widget.itemCount ?? widget.items!.length;
 
             if (nextPage >= itemCount &&
@@ -143,8 +143,7 @@ class CarouselSliderState extends State<CarouselSlider>
               nextPage = 0;
             }
 
-            carouselState!.pageController!
-                .animateToPage(nextPage,
+            carouselState!.pageController?.animateToPage(nextPage,
                     duration: widget.options.autoPlayAnimationDuration,
                     curve: widget.options.autoPlayCurve)
                 .then((_) => changeMode(previousReason));
