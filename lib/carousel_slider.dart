@@ -144,8 +144,8 @@ class CarouselSliderState extends State<CarouselSlider>
             }
 
             carouselState?.pageController?.animateToPage(nextPage,
-                    duration: widget.options.autoPlayAnimationDuration ?? Duration(milliseconds: 800),
-                    curve: widget.options.autoPlayCurve ?? Curves.fastOutSlowIn)
+                    duration: widget.options.autoPlayAnimationDuration,
+                    curve: widget.options.autoPlayCurve)
                 .then((_) => changeMode(previousReason));
           })
         : null;
